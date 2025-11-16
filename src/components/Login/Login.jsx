@@ -27,7 +27,7 @@ export default function Login() {
 
     try {
       const res = await auth.login(usuario, clave);
-      localStorage.setItem("cajero", JSON.stringify(res));
+      localStorage.setItem("cajero", JSON.stringify(res.cajero));
       nav("/seleccionar");
     } catch (err) {
       setError("Credenciales inválidas o error de servidor");
@@ -37,7 +37,6 @@ export default function Login() {
   return (
     <div className="login-container">
 
-      {/* Lado Izquierdo */}
       <div className="left-section">
 
         <img src={logo} alt="ARC BANK" className="logo" />
@@ -51,7 +50,6 @@ export default function Login() {
 
           <form onSubmit={handleSubmit}>
 
-            {/* Usuario */}
             <div className="input-group">
               <input
                   type="text"
@@ -60,7 +58,6 @@ export default function Login() {
                   onChange={(e) => {
                     const value = e.target.value;
 
-                    // Permite solo letras y espacios
                     if (/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]*$/.test(value)) {
                       setUsuario(value);
                     }
@@ -69,7 +66,6 @@ export default function Login() {
             </div>
             <a className="forgot">¿Olvidaste tu usuario?</a>
 
-            {/* Contraseña */}
             <div className="input-group">
               <i className="fa-solid fa-lock icon"></i>
               <input
@@ -90,7 +86,6 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Lado Derecho */}
       <div className="right-section">
         <p className="security-text">
           Recuerda cuidar bien tu usuario y contraseña, no lo compartas con tus

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Sidebar({ cajero }) {
   const nav = useNavigate();
 
-  const nombreCompleto = cajero?.nombreCompleto ?? "Cajero";
+  const nombreCompleto = cajero?.nombreCompleto || "Cajero";
   const primerNombre = nombreCompleto.split(" ")[0];
 
   const cerrarSesion = () => {

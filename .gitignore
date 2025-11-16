@@ -1,0 +1,10 @@
+# Dependencias
+/node_modules
+/package-lock.json
+
+# Build artifacts
+/dist
+/build
+
+# Vite-specific files
+.vite/
